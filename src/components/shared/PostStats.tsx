@@ -81,7 +81,7 @@ useEffect(() => {
           <p className='text-sm'>{likes.length}</p>
         </div>
         {
-          isSaving || isUnsaving ? <Loader /> :
+          isSaving || isUnsaving ? <Loader height={50} width={50}/> :
         
         <img
           className="cursor-pointer"

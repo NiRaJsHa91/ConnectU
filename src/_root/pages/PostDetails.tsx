@@ -40,7 +40,7 @@ const PostDetails = () => {
     <div className="flex flex-1 flex-col overflow-scroll custom-scrollbar py-9 px-5 items-center md:py-14">
       {isLoadingPost || isUserLoading ? (
         <div className="content-center w-full h-full">
-          <Loader />
+          <Loader height={50} width={50}/>
         </div>
       ) : (
         <div className="flex min-w-[320px] w-[80%] flex-1 flex-col lg:flex-row lg:justify-between gap-12 items-center max-w-5xl">

@@ -11,7 +11,7 @@ const { data: searchedPosts, isFetching: isSearchFetching } =
 
  if(isSearchFetching)
   return <div className="w-full">
-     <Loader/>
+     <Loader height={50} width={50}/>
          </div>
 
  else if(searchedPosts && searchedPosts.documents.length > 0) return (

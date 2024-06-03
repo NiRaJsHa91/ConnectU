@@ -13,7 +13,7 @@ const EditPost = () => {
 
   if(isPostLoading) return (
     <div className="w-full h-svh flex justify-center items-center">
-      <Loader />
+      <Loader height={50} width={50}/>
     </div>
   );
 

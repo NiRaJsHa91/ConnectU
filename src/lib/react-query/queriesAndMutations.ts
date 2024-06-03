@@ -145,8 +145,8 @@ export const useSearchedPosts = (search: string) => {
 export const useGetInfinitePosts = () => {
   return useInfiniteQuery({
     queryKey: [QueryKeys.GET_INFINITE_USERS],
-    queryFn: getInfinitePosts,
-    getNextPageParam: (lastPage) => {
+    queryFn: getInfinitePosts as any,
+    getNextPageParam: (lastPage: any) => {
       if(lastPage && lastPage.documents.length === 0) return null
       
       const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id
@@ -159,8 +159,8 @@ export const useGetInfinitePosts = () => {
 export const useGetInfiniteUsers = () => {
   return useInfiniteQuery({
     queryKey: [QueryKeys.GET_INFINITE_POSTS],
-    queryFn: getInfiniteUsers,
-    getNextPageParam: (lastPage) => {
+    queryFn: getInfiniteUsers as any,
+    getNextPageParam: (lastPage: any) => {
       if(lastPage && lastPage.documents.length === 0) return null
       
       const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id

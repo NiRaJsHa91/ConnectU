@@ -100,14 +100,14 @@ export async function signOutAccount() {
 }
 
 export async function createPost(post: INewPost) {
+  let hash
   try {
     // Upload File to Storage
     const uploadedFile = await uploadFile(post.file[0]);
     if (!uploadedFile) throw new Error("File Upload Failed, Please try again");
 
-    const fileURL = getFilePreview(uploadedFile.$id);
-
-    const hash = await encodeImageToBlurhash(fileURL);
+    const fileURL =  getFilePreview(uploadedFile.$id);
+    if(fileURL)  hash = await encodeImageToBlurhash(fileURL.toString());
 
     const tags = post.tags?.replace(/ /g, "").split(",") || [];
 
@@ -170,7 +170,7 @@ export function getFilePreview(fileID: string) {
   }
 }
 
-export async function deleteFile(fileID: string | URL) {
+export async function deleteFile(fileID: string) {
   try {
     await storage.deleteFile(appwriteConfig.storageID, fileID);
 
@@ -472,11 +472,11 @@ export async function updateProfile(user: IupdateUser) {
     )
 
     if(!updatedUser) {
-      if(hasFileToUpdate) await deleteFile(image.imageID)
+      if(hasFileToUpdate) await deleteFile((image.imageID).toString())
       throw Error
     }
 
-    if(hasFileToUpdate) await deleteFile(user.imageID)
+    if(hasFileToUpdate) await deleteFile((user.imageID).toString())
 
     return updatedUser
   } catch (error) {

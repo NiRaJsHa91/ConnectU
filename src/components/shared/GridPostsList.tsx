@@ -3,8 +3,7 @@ import { Models } from 'appwrite'
 import { Link } from 'react-router-dom';
 import PostStats from './PostStats';
 import { Blurhash } from "react-blurhash";
-import { useEffect, useState } from 'react';
-import { clearTimeout } from 'timers';
+import { useState } from 'react';
 
 export type GridPostsListProps = {
   posts: Models.Document[],
