@@ -71,13 +71,13 @@ const PostForm = ({post, action}: PostFormProps) => {
           ...values,
           userId: user.id,
         })
-        console.log(newPost)
+        // console.log(newPost)
 
         if(!newPost){
           toast({ title: "Post Creation Failed, Please try again" });
           return
         } 
-      console.log("redirecting")
+      // console.log("redirecting")
       return navigate('/')
 
 }

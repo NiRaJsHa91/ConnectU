@@ -25,7 +25,7 @@ export async function createNewAccount(user: INewUser) {
 
     return newUser;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return error;
   }
 }
@@ -46,7 +46,7 @@ export async function saveUserToDB(user: {
     );
     return newUser;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -55,7 +55,7 @@ export async function signInAccount(user: { email: string; password: string }) {
     const session = await account.createEmailSession(user.email, user.password);
     return session;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -64,7 +64,7 @@ export async function getCurrentSession() {
     const currentSession = await account.get();
     return currentSession;
   } catch (error) {
-    console.log("error in getCurrentSession" + error);
+    // console.log("error in getCurrentSession" + error);
   }
 }
 
@@ -85,7 +85,7 @@ export async function getCurrentUser() {
     if (!currentUser) throw Error;
     return currentUser.documents[0];
   } catch (error) {
-    console.log("error in getCurrentUser" + error);
+    // console.log("error in getCurrentUser" + error);
     return null;
   }
 }
@@ -95,7 +95,7 @@ export async function signOutAccount() {
     const deletedSession = await account.deleteSession("current");
     return deletedSession;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -133,7 +133,7 @@ export async function createPost(post: INewPost) {
 
     return newPost;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -147,7 +147,7 @@ export async function uploadFile(file: File) {
 
     return uploadedFile;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -166,7 +166,7 @@ export function getFilePreview(fileID: string) {
 
     return filePreview;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -176,7 +176,7 @@ export async function deleteFile(fileID: string) {
 
     return { status: "ok" };
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -192,7 +192,7 @@ export async function getRecentPosts() {
 
     return posts;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -212,7 +212,7 @@ export async function likePost(postID: string, newLikesList: string[]) {
 
     return updatedPost;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -232,7 +232,7 @@ export async function savePost(postID: string, userID: string) {
 
     return savedPostRecord;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -248,7 +248,7 @@ export async function deleteSavedRecord(savedPostRecordID: string) {
 
     return { status: "ok" };
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -262,10 +262,10 @@ export async function getPostByID(postID: string) {
 
     if (!post) throw Error;
 
-    console.log(post);
+    // console.log(post);
     return post;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -314,7 +314,7 @@ export async function updatePost(post: IupdatePost) {
 
     return updatedPost;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -337,7 +337,7 @@ export async function deletePost(postID: string, imageID: string) {
         postID
     )
 
-    console.log(deletePostStatus)
+    // console.log(deletePostStatus)
 
     if(!deletePostStatus) throw Error
 
@@ -348,7 +348,7 @@ export async function deletePost(postID: string, imageID: string) {
 
     return { status: "ok" }
   } catch (error) {
-    console.log(error)
+    // console.log(error)
   }
 }
 
@@ -364,7 +364,7 @@ export async function searchedPosts(search: string) {
 
     return searchedPosts
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -386,7 +386,7 @@ export async function getInfinitePosts({pageParam}: {pageParam: number}) {
     return posts
    
   } catch (error) {
-    console.log(error)
+    // console.log(error)
   }
 }
 
@@ -406,7 +406,7 @@ export async function getInfiniteUsers({ pageParam }: { pageParam: number }) {
 
     return allUsers;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -424,7 +424,7 @@ export async function getSavedPosts(userID: string) {
     
     return savedPostsDetails
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -441,7 +441,7 @@ export async function getUserByID(userDocumentID: string) {
 
     return user
   } catch (error) {
-    console.log(error);
+    // console.log(error);
   }
 }
 
@@ -480,7 +480,7 @@ export async function updateProfile(user: IupdateUser) {
 
     return updatedUser
   } catch (error) {
-    console.log(error)
+    // console.log(error)
   }
 }
 
@@ -501,7 +501,7 @@ export async function follow (followedByID: string, beingFollowedID: string) {
     return followRecord
     
   } catch (error) {
-    console.log(error)
+    // console.log(error)
   }
 }
 
@@ -516,6 +516,6 @@ export async function doesFollow (followedByID: string, beingFollowedID: string)
     return followRecord ? true : false
 
   } catch (error) {
-    console.log(error)
+    // console.log(error)
   }
 }

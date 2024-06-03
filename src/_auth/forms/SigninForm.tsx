@@ -82,7 +82,7 @@ const SigninForm = () => {
             "bg-danger-red font-semibold p-3 w-fit h-fit fixed right-10 bottom-10 ml-10",
         });
     } catch (error) {
-      console.log("error in onSubmit" + error);
+      // console.log("error in onSubmit" + error);
     }
   }
 

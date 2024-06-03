@@ -82,7 +82,7 @@ const SignupForm = () => {
       }else toast({ title: "Login failed. Please try again." });
 
     } catch (error) {
-      console.log("error in onSubmit" + error);
+      // console.log("error in onSubmit" + error);
     }
   }
 
