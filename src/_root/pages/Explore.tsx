@@ -21,7 +21,7 @@ useEffect(() => {
 
 if(!posts){
   return <div className="content-center w-full">
-    <Loader height={100} width={100}/>
+    <Loader height={50} width={50}/>
   </div>
 }
 

@@ -48,9 +48,23 @@ export const useLikePost = () => {
     return useMutation({
       mutationFn: ({postID, newLikesList}:{postID: string, newLikesList: string[]}) => 
         likePost(postID, newLikesList),
-        onSuccess: () => queryClient.invalidateQueries({
-        queryKey: [QueryKeys.GET_RECENT_POSTS]
-      })   
+        onSuccess: (data) => {
+          queryClient.invalidateQueries({
+          queryKey: [QueryKeys.GET_RECENT_POSTS],
+        }), 
+          queryClient.invalidateQueries({
+          queryKey: [QueryKeys.GET_POSTS],
+        }) 
+          queryClient.invalidateQueries({
+          queryKey: [QueryKeys.GET_SAVED_POSTS_DETAILS],
+        }) 
+          queryClient.invalidateQueries({
+          queryKey: [QueryKeys.GET_INFINITE_POSTS],
+        }) 
+          queryClient.invalidateQueries({
+          queryKey: [QueryKeys.GET_POST_BY_ID, data?.$id],
+        }) 
+        }  
     });
 }
 
