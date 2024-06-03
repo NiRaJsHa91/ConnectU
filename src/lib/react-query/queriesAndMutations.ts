@@ -152,7 +152,8 @@ export const useGetInfinitePosts = () => {
       const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id
 
       return lastId
-    }
+    },
+    initialPageParam: undefined
   })
 }
 
@@ -161,13 +162,14 @@ export const useGetInfiniteUsers = () => {
     queryKey: [QueryKeys.GET_INFINITE_POSTS],
     queryFn: getInfiniteUsers as any,
     getNextPageParam: (lastPage: any) => {
-      if(lastPage && lastPage.documents.length === 0) return null
-      
-      const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id
+      if (lastPage && lastPage.documents.length === 0) return null;
 
-      return lastId
-    }
-  })
+      const lastId = lastPage?.documents[lastPage?.documents.length - 1].$id;
+
+      return lastId;
+    },
+    initialPageParam: undefined,
+  });
 }
 
 export const useGetSavedPostsDetails = (userID: string) => {
